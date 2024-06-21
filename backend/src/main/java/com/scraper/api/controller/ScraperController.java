@@ -18,15 +18,6 @@ public class ScraperController {
     @Autowired
     private KeywordService keywordService;
 
-    @GetMapping
-    @ResponseBody
-    public String index() {
-        // TODO
-        return "<!DOCTYPE html><html lang=\"en\">"
-                + "<head><title>Selenium / Spring Boot demo</title></head>"
-                + "<body><h1 id=\"h1-hello\">Hello world!</h1></body></html>";
-    }
-
     @GetMapping(path = "/word-complete")
     public Set<String> getWordCompleteList(@RequestParam("q") String text) throws Exception {
         // TODO
