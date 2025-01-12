@@ -26,34 +26,6 @@ This application offers a comprehensive suite of features for both users searchi
 
 ## Tech Stack 💻
 
-+-----------------+       +---------------------+       +-----------------------+
-|   Next.js      | ----> | Spring Boot         | ----> | Product Search        |
-|   Frontend    |       | API Gateway         |       | Service               |
-+-----------------+       +---------------------+       +-----------------------+
-                                    ^  |                      |  ^
-                                    |  |                      |  |
-                                    |  v                      v  |
-                          +---------------------+       +-----------------------+
-                          | Auto-Complete       |       | Inverted Index        |
-                          | Service             |       +-----------------------+
-                          +---------------------+       +-----------------------+
-                                    ^
-                                    |                      +-----------------------+
-                                    |                      | Spell-Checking        |
-                                    v                      | Service               |
-                          +---------------------+       +-----------------------+
-                          | Data Analysis       | <---- | Page Ranking          |
-                          | Service             |       | (Component)           |
-                          +---------------------+       +-----------------------+
-                                    ^
-                                    |
-                                    |
-                                    v
-+-----------------+       +---------------------+       +-----------------------+
-| External        | <---- | Web Crawler         | ----> | MySQL Product         |
-| Data Sources  |       | Service             |       | Database              |
-+-----------------+       +---------------------+       +-----------------------+
-
 This project utilizes a modern and efficient technology stack:
 
 ### **Backend:**
@@ -86,26 +58,18 @@ Follow these steps to get the project up and running on your local machine:
 
 1. **Clone the repository:**
     ```bash
-    git clone <repository_url>
-    cd <repository_name>/backend
+    git clone https://github.com/anthonyhungnguyen/food-price-tracker
+    cd food-price-tracker/backend
     ```
 2. **Navigate to the backend directory:**
     ```bash
     cd backend
     ```
-3. **Database Configuration:**
-    -   Create a MySQL database for the project.
-    -   Update the `application.properties` or `application.yml` file (located in `src/main/resources`) with your database credentials:
-    ```
-    spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
-    spring.datasource.username=your_database_user
-    spring.datasource.password=your_database_password
-    ```
-4. **Build the project:**
+3. **Build the project:**
     ```bash
     ./mvnw clean install
     ```
-5. **Run the application:**
+4. **Run the application:**
     ```bash
     ./mvnw spring-boot:run
     ```
@@ -114,7 +78,7 @@ Follow these steps to get the project up and running on your local machine:
 
 1. **Navigate to the frontend directory:**
     ```bash
-    cd ../frontend # Assuming you are still in the backend directory
+    cd ../frontend
     ```
 2. **Install dependencies:**
     ```bash
