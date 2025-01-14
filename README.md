@@ -1,115 +1,81 @@
-# Online Product Search and Analysis System 🛍️
+# Food Price Tracker 🛒
 
-A powerful web application that provides advanced product search capabilities, including spell checking, auto-completion, page ranking, and real-time data crawling from multiple online stores. This project leverages a robust **Spring Boot backend** and a modern **Next.js frontend**.
+[![Java](https://img.shields.io/badge/Java-21-red.svg)](https://openjdk.java.net/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.1-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black.svg)](https://nextjs.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Features ✨
+A web application that tracks food prices across multiple online stores, featuring real-time data crawling, advanced search capabilities, and data analytics.
 
-This application offers a comprehensive suite of features for both users searching for products and administrators managing the system:
+## Features
 
-### **For Users:**
+- 🔍 **Smart Search**
+  - Real-time price tracking
+  - Auto-complete suggestions
+  - Spell checking
+  - Page ranking by relevance
+  - Inverted index for fast results
 
--   **🔎 Intelligent Product Search:**
-    -   Search products across multiple online stores with a single query.
-    -   Benefit from real-time product data fetched via web crawling.
--   **🚀 Advanced Search Capabilities:**
-    -   **Auto-complete:** Get instant search suggestions powered by an efficient Red-Black Tree implementation.
-    -   **Spell Checking:** Automatically correct typos using an edit distance algorithm.
-    -   **Page Ranking:** See the most relevant results first, thanks to a keyword frequency-based ranking system.
-    -   **Inverted Indexing**: Optimized for fast search results
-### **For Administrators:**
+- 📊 **Analytics**
+  - Search pattern tracking
+  - Data validation
+  - Web crawler monitoring
 
--   **📊 Data Analysis & Management:**
-    -   **Keyword Frequency Tracking:** Monitor trending search terms.
-    -   **Search Pattern Analysis:** Gain insights into user search behavior.
-    -   **Automated Data Validation:** Ensure product listings and CSV datasets are accurate and up-to-date.
-    -   **Web Crawler Management:** Control and monitor web crawling operations.
+## Architecture
 
-## Tech Stack 💻
+```mermaid
+graph TD
+    A[Frontend - Next.js] -->|HTTP/REST| B[Backend - Spring Boot]
+    B --> C[MySQL Database]
+    B --> D[Web Crawlers]
+    D -->|Fetch Prices| E[Online Stores]
+    F[Redis Cache] --> B
+```
 
-This project utilizes a modern and efficient technology stack:
+## Tech Stack
 
-### **Backend:**
+**Backend:**
+- Java 21, Spring Boot 3.3
+- MySQL, Redis
+- Selenium WebDriver
 
--   **Java 21:** The latest LTS version of Java for a robust and performant backend.
--   **Spring Boot 3.3.1:** Simplifies development and provides a solid foundation for enterprise features.
--   **JPA/Hibernate:** For seamless database interaction and object-relational mapping.
--   **MySQL:** A reliable and widely used relational database management system.
--   **Selenium WebDriver:** Enables automated web crawling for real-time product data.
+**Frontend:**
+- Next.js 14, TypeScript
+- Tailwind CSS, Ant Design
 
-### **Frontend:**
+## Quick Start
 
--   **Next.js:** A React framework for building fast, server-rendered, and SEO-friendly web applications.
--   **TypeScript:** Adds static typing to JavaScript, improving code quality and maintainability.
--   **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
--   **ESLint:** Enforces code style and helps catch potential errors.
+### Backend
+```bash
+cd backend
+./mvnw clean install
+./mvnw spring-boot:run
+```
 
-## Getting Started 🚀
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-Follow these steps to get the project up and running on your local machine:
+## API Routes
 
-### **Prerequisites:**
-
--   **Java 21 (JDK):** Make sure you have the Java 21 Development Kit installed.
--   **Node.js (with npm):** Required for managing frontend dependencies and running the development server.
--   **MySQL:** Have a MySQL server installed and running.
--   **Maven:** Used for building and managing the backend project.
-
-### **Backend Setup:**
-
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/anthonyhungnguyen/food-price-tracker
-    cd food-price-tracker/backend
-    ```
-2. **Navigate to the backend directory:**
-    ```bash
-    cd backend
-    ```
-3. **Build the project:**
-    ```bash
-    ./mvnw clean install
-    ```
-4. **Run the application:**
-    ```bash
-    ./mvnw spring-boot:run
-    ```
-
-### **Frontend Setup:**
-
-1. **Navigate to the frontend directory:**
-    ```bash
-    cd ../frontend
-    ```
-2. **Install dependencies:**
-    ```bash
-    npm install
-    ```
-3. **Configure API Base URL (if necessary):**
-    -   If your backend is running on a port other than the default or a different host, update the API base URL in your frontend environment files (e.g., `.env.local`, `.env.development`). You might have a variable like `NEXT_PUBLIC_API_BASE_URL`.
-4. **Start the development server:**
-    ```bash
-    npm run dev
-    ```
-
-
-## API Endpoints 🗂️
-
-The backend exposes the following REST API endpoints:
-
--   `/api/products`:  Handles product search and management operations.
--   `/api/auto-complete`: Provides word completion suggestions.
--   `/api/spell-checking`: Offers spell checking services.
--   `/api/page-ranking`: Calculates page ranking scores.
--   `/api/web-crawler`: Manages web crawling operations (likely for admin use).
--   `/api/keyword-search`: Provides keyword search analytics (likely for admin use).
--   `/api/data-validation`: Offers data validation services (likely for admin use).
-
-**Note:** You might want to add more specific details about request/response formats for each endpoint in a separate API documentation file.
+- `GET /api/products` - Search products
+- `GET /api/auto-complete` - Get suggestions
+- `GET /api/spell-checking` - Check spelling
+- `GET /api/page-ranking` - Get ranked results
+- `GET /api/web-crawler` - Crawler status
+- `GET /api/data-validation` - Validate data
 
 ## Contributing
 
-If you'd like to contribute to this project, please feel free to submit a pull request.
+1. Fork the repo
+2. Create feature branch (`git checkout -b feature/new-feature`)
+3. Commit changes (`git commit -am 'Add new feature'`)
+4. Push branch (`git push origin feature/new-feature`)
+5. Create pull request
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+[MIT](LICENSE)
